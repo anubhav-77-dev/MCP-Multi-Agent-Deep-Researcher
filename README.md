@@ -26,7 +26,7 @@ A powerful multi-agent research system built on the **Model Context Protocol (MC
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher.git
+git clone https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher.git
 cd MCP-Multi-Agent-Deep-Researcher
 
 # 2. Run the setup script
@@ -86,7 +86,7 @@ graph TD
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher.git
+git clone https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher.git
 cd MCP-Multi-Agent-Deep-Researcher
 
 # Run automated setup (checks dependencies, installs packages, configures environment)
@@ -462,7 +462,7 @@ We welcome contributions! Here's how to get started:
 ### Development Setup
 ```bash
 # Fork and clone the repo
-git clone https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher.git
+git clone https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher.git
 cd MCP-Multi-Agent-Deep-Researcher
 
 # Install development dependencies  
@@ -522,7 +522,7 @@ Built with amazing open-source technologies:
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher&type=Date)](https://star-history.com/#YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher&type=Date)](https://star-history.com/#anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher&Date)
 
 ---
 
@@ -530,6 +530,6 @@ Built with amazing open-source technologies:
 
 **Made with ❤️ for the AI research community**
 
-[🌟 Star this repo](https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher) • [🐛 Report Bug](https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher/issues) • [💡 Request Feature](https://github.com/YOUR_USERNAME/MCP-Multi-Agent-Deep-Researcher/issues)
+[🌟 Star this repo](https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher) • [🐛 Report Bug](https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher/issues) • [💡 Request Feature](https://github.com/anubhav-77-dev/MCP-Multi-Agent-Deep-Researcher/issues)
 
 </div>
