@@ -1,0 +1,1 @@
+# MCP Multi-Agent Deep Researcher Package

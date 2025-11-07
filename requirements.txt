@@ -1,0 +1,26 @@
+# MCP Multi-Agent Deep Researcher - Requirements
+# Install with: pip install -r requirements.txt
+
+# Core MCP and FastAPI
+mcp>=1.21.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic>=2.5.0
+anyio>=4.5.0
+starlette>=0.39.0
+
+# Multi-Agent Framework
+crewai>=1.4.0
+crewai-tools>=1.4.0
+litellm>=1.79.1
+
+# Utilities
+requests>=2.31.0
+python-dotenv>=1.0.0
+fastuuid>=0.14.0
+
+# Development dependencies (optional)
+pytest>=7.4.3
+black>=23.11.0
+isort>=5.12.0
+flake8>=6.1.0

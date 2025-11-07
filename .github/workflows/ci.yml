@@ -1,0 +1,94 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.10', '3.11', '3.12']
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+    
+    - name: Install dependencies
+      run: poetry install --no-interaction --no-root
+    
+    - name: Install project
+      run: poetry install --no-interaction
+    
+    - name: Create test environment file
+      run: |
+        echo "LINKUP_API_KEY=test_key" > .env
+        echo "OLLAMA_BASE_URL=http://localhost:11434" >> .env
+        echo "MODEL_NAME=phi3:latest" >> .env
+        echo "OPENAI_API_KEY=ollama" >> .env
+        echo "OPENAI_API_BASE=http://localhost:11434/v1" >> .env
+    
+    - name: Run linting
+      run: |
+        poetry run black --check .
+        poetry run isort --check-only .
+        poetry run flake8 .
+    
+    - name: Run basic import tests
+      run: |
+        poetry run python -c "
+        import sys
+        sys.path.append('Multi-Agent-deep-researcher-mcp-windows-linux')
+        try:
+            from agents.tools.linkup_search import LinkUpSearchTool
+            from agents.tools.ollama_tool import OllamaLLMTool
+            print('✅ All imports successful')
+        except ImportError as e:
+            print(f'❌ Import failed: {e}')
+            sys.exit(1)
+        "
+    
+    - name: Test launcher script
+      run: |
+        poetry run python -c "
+        import launcher
+        print('✅ Launcher script imports successfully')
+        "
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Run security checks
+      uses: pypa/gh-action-pip-audit@v1.0.8
+      with:
+        inputs: requirements.txt
+        
+    - name: Check for secrets
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: main
+        head: HEAD

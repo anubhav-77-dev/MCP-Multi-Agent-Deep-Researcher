@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "crew_research": {
+      "command": "poetry",
+      "args": [
+        "run",
+        "python",
+        "Multi-Agent-deep-researcher-mcp-windows-linux/server.py"
+      ],
+      "env": {
+        "LINKUP_API_KEY": "your_linkup_api_key_here"
+      }
+    }
+  }
+}
